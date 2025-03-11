@@ -18,8 +18,8 @@ export function Footer() {
   ];
 
   return (
-    <footer className="w-full flex flex-col items-center bg-dark-200 py-14 px-6">
-      <div className="max-w-[1920px] w-full flex flex-col gap-10 items-start lg:px-16 px-6 py-0">
+    <footer className="w-full flex flex-col items-center bg-dark-200 py-14 px-6 gap-8 ">
+      <div className="max-w-[1920px] w-full flex flex-col xl:flex-row justify-between gap-10 items-start lg:px-16 px-6 py-0">
         <Image
           src="/logo-pine.svg"
           width={40}
@@ -28,8 +28,8 @@ export function Footer() {
           className="w-[30px] xl:w-[40px]"
         />
 
-        <div className="w-full flex flex-col xl:flex-row xl:justify-between items-centerxl:text-left gap-10">
-          <div className="flex flex-col xl:flex-row gap-10 xl:gap-32 w-full justify-center">
+        <div className="xl:w-1/3 flex flex-col xl:flex-row xl:justify-between items-center xl:text-left gap-10">
+          <div className="flex flex-col xl:flex-row gap-16 w-full justify-between">
             {footerLinks.map((section, index) => (
               <div key={index} className="flex flex-col gap-6">
                 <h2 className="text-lime-green text-[23px] font-semibold">
@@ -52,8 +52,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="w-full flex flex-col items-start xl:items-end">
-          <button className="bg-dark-green flex items-center justify-between px-6 py-3 rounded-full text-white hover:bg-dark-400 transition-all w-full max-w-[350px] relative">
+        <div className="xl:w-1/3 w-full flex flex-col items-end justify-end xl:items-end">
+          <button className="bg-dark-green flex items-center justify-between px-6 py-4 rounded-full text-white hover:bg-dark-400 transition-all w-full xl:max-w-[550px] relative">
             <span className="text-sm md:text-base text-secondary-300">
               Join our community!
             </span>
@@ -67,12 +67,11 @@ export function Footer() {
             </div>
           </button>
         </div>
-
-        <div className="w-full border-t border-secondary-500 pt-4 text-sm text-grayscale-400 text-start">
-          <span className="text-[11px] text-grayscale-100">
-            © 2025 Pine Stake
-          </span>
-        </div>
+      </div>
+      <div className="w-2/3 border-t border-secondary-500 pt-4 text-sm text-grayscale-400 text-start">
+        <span className="text-[11px] text-grayscale-100">
+          © 2025 Pine Stake
+        </span>
       </div>
     </footer>
   );

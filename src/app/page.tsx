@@ -7,7 +7,7 @@ import { Supporters } from "@/components/Supporters";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between w-full max-w-[1920px] md:gap-[124px] gap-[80px]">
+    <main className="flex min-h-screen flex-col items-center justify-between w-full max-w-[1420px] md:gap-[124px] gap-[80px]">
       <HeroSection />
       <About />
       <Cards />
