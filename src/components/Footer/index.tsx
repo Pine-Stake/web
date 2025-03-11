@@ -68,7 +68,7 @@ export function Footer() {
           </button>
         </div>
 
-        <div className="w-full border-t border-secondary-500 pt-4 text-sm text-grayscale-400 text-center">
+        <div className="w-full border-t border-secondary-500 pt-4 text-sm text-grayscale-400 text-start">
           <span className="text-[11px] text-grayscale-100">
             © 2025 Pine Stake
           </span>
