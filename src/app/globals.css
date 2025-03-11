@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @font-face {
   font-family: "Onest";
   src: url("/fonts/Onest-Regular.ttf") format("truetype");
@@ -50,4 +46,45 @@
 
 body {
   font-family: "Onest", sans-serif;
+}
+
+#informatives-div::-webkit-scrollbar {
+  display: none;
+}
+.flip-container {
+  perspective: 1000px;
+}
+
+.flip-card {
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease-in-out;
+}
+
+.flip-card.flipped-180 {
+  transform: rotateY(180deg);
+}
+
+.flip-card.flipped-360 {
+  transform: rotateY(360deg);
+}
+
+.flip-front,
+.flip-back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 32px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  background-color: #5ea395;
+  text-align: center;
+  justify-content: center;
 }

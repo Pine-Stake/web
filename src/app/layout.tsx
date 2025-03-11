@@ -22,10 +22,12 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body
-        className={`${inter.className}min-h-screen scroll-smooth xl:px-16 px-8 bg-dark-green`}
+        className={`${inter.className} min-h-screen scroll-smooth  bg-dark-green w-full flex flex-col items-center justify-center`}
       >
-        <Header />
-        {children}
+        <div className="w-full lg:px-16 px-6 py-0 flex flex-col items-center justify-center  max-w-[1920px] ">
+          <Header />
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

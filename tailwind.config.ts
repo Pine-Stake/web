@@ -13,13 +13,19 @@ const config: Config = {
   			'dark-green': '#001A17',
 			'lime-green': '#2CD122',
 			'light-green': '#AED8CC',
+			'grayscale-600': '#262626',
+			'grayscale-100': '#F6F6F6',
+			'grayscale-200': '#D1D1D1',
+			'dark-200':'#002621',
+			'secondary-300': '#AED8CC',
+			'secondary-500': '#5EA395',
 
   		},
 		  fontFamily: {
 			onest: ["Onest", "sans-serif"],
 		  },
 		  backgroundImage: {
-			"custom-gradient": "linear-gradient(to bottom, #003D35 0%, #002621 100%)",
+			"custom-gradient": "linear-gradient(to top, #003D35 0%, #002621 100%)",
 		  },
   	}
   },
