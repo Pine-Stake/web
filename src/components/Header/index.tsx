@@ -2,8 +2,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
+  const [darkMode, setDarkMode] = useState(false);
   const menuLinks = [
     { name: "Solutions", href: "/" },
     { name: "Documentation", href: "/" },
@@ -11,23 +13,27 @@ export function Header() {
     { name: "FAQ", href: "/" },
   ];
 
-  const iconLinks = [
-    { src: "/download.svg", alt: "Download", href: "/" },
-    { src: "/web.svg", alt: "Web", href: "/" },
-  ];
-
+  const iconLinks = darkMode
+    ? [
+        { src: "/light-x.svg", alt: "X", href: "/" },
+        { src: "/light-discord.svg", alt: "Discord", href: "/" },
+      ]
+    : [
+        { src: "/dark-x.svg", alt: "X", href: "/" },
+        { src: "/dark-discord.svg", alt: "Discord", href: "/" },
+      ];
   const actionLinksDesktop = [
     {
       name: "Institutional",
       href: "/",
-      bgColor: "bg-lime-green",
-      textColor: "text-dark-green",
+      bgColor: "bg-primary-300",
+      textColor: "text-dark-background-100",
     },
     {
       name: "Stake now",
       href: "/",
-      bgColor: "bg-light-green",
-      textColor: "text-dark-green",
+      bgColor: "bg-secondary-300",
+      textColor: "text-dark-background-100",
     },
   ];
 
@@ -35,31 +41,25 @@ export function Header() {
     {
       name: "Stake now",
       href: "/",
-      bgColor: "bg-lime-green",
-      textColor: "text-dark-green",
+      bgColor: "bg-primary-300",
+      textColor: "text-dark-background-100",
     },
   ];
 
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="w-full flex items-center justify-between py-7 max-w-[1920px]  ">
+    <div className="w-full flex items-center justify-between py-7 max-w-[1920px]  font-onest">
       <div className="flex items-center gap-20">
         <div>
-          <Image
-            src="/logo-pine.svg"
-            width={40}
-            height={70}
-            alt="logo"
-            className="w-[30px] xl:w-[40px]"
-          />
+          <ThemeToggle onToggle={setDarkMode} />
         </div>
-        <div className="hidden xl:flex gap-10 text-white">
+        <div className="hidden xl:flex gap-10 dark:text-grayscale-100 text-grayscale-600">
           {menuLinks.map((link, index) => (
             <Link
               key={index}
               href={link.href}
-              className="hover:bg-lime-green px-4 py-2 rounded-[56px] text-base hover:text-grayscale-600"
+              className="hover:bg-primary-300 px-4 py-2 rounded-[56px] text-base hover:text-grayscale-600 dark:hover:text-grayscale-600"
             >
               {link.name}
             </Link>
@@ -114,7 +114,7 @@ export function Header() {
           </Link>
         ))}
 
-        <button onClick={() => setMenuOpen(true)} className="text-lime-green">
+        <button onClick={() => setMenuOpen(true)} className="text-primary-300">
           <svg
             className="w-10 h-10"
             fill="none"
@@ -143,7 +143,7 @@ export function Header() {
           </Link>
         ))}
 
-        <button onClick={() => setMenuOpen(true)} className="text-lime-green">
+        <button onClick={() => setMenuOpen(true)} className="text-primary-300">
           <svg
             className="w-10 h-10"
             fill="none"
@@ -188,7 +188,7 @@ export function Header() {
               <Link
                 key={index}
                 href={link.href}
-                className="hover:bg-lime-green px-6 py-3 rounded-lg w-full text-center"
+                className="hover:bg-primary-300 px-6 py-3 rounded-lg w-full text-center"
               >
                 {link.name}
               </Link>

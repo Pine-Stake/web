@@ -3,53 +3,64 @@ import Image from "next/image";
 export function Informatives() {
   const informativesList = [
     {
-      icon: "/green-sol.svg",
-      value: "23.241",
+      lightIcon: "/light-green-sol.svg",
+      darkIcon: "/green-sol.svg",
+      value: "146K",
       description1: "Sol",
-      description2: "Staked",
     },
     {
-      icon: "/green-graph.svg",
+      lightIcon: "/light-green-graph.svg",
+      darkIcon: "/green-graph.svg",
       value: "7.08%",
-      description1: "Avg.",
-      description2: "APY",
+      description1: "APY",
     },
     {
-      icon: "/green-commission.svg",
-      value: "5%",
-      description1: "Commission",
-      description2: "Percent",
+      lightIcon: "/light-green-commission.svg",
+      darkIcon: "/green-commission.svg",
+      value: "0%",
+      description1: "FEE",
     },
     {
-      icon: "/green-commission.svg",
-      value: "5%",
-      description1: "Commission",
-      description2: "Percent",
+      lightIcon: "/light-green-commission.svg",
+      darkIcon: "/green-commission.svg",
+      value: "35",
+      description1: "Holders",
     },
   ];
 
   return (
     <div
       id="informatives-div"
-      className="flex md:gap-10 gap-8 w-full mt-[80px] items-center justify-between overflow-x-auto"
+      className="flex md:gap-10 gap-8 w-full mt-[80px] items-center justify-between overflow-x-auto font-onest"
     >
       {informativesList.map((item, index) => (
         <div
           key={index}
-          className="border justify-center bg-dark-200 border-grayscale-100 rounded-3xl px-14 py-8 flex items-center gap-4 w-full"
+          className="border justify-center dark:bg-dark-background-200 bg-background-200 dark:border-secondary-300 border-secondary-500 rounded-3xl px-14 py-8 flex items-center gap-4 w-full"
         >
-          <Image
-            src={item.icon}
-            alt={item.description1}
-            width={40}
-            height={40}
-            className="w-10 h-10"
-          />
-          <p className="text-[32px] text-grayscale-100">{item.value}</p>
+          <div className="relative size-10">
+            <Image
+              src={item.lightIcon}
+              alt={item.description1}
+              width={40}
+              height={40}
+              className="block dark:hidden"
+            />
+            <Image
+              src={item.darkIcon}
+              alt={item.description1}
+              width={40}
+              height={40}
+              className="hidden dark:block"
+            />
+          </div>
+
+          <p className="text-[28px] dark:text-grayscale-100 text-grayscale-600">
+            {item.value}
+          </p>
           <div className="flex flex-col">
-            <p className="text-base text-grayscale-200">{item.description1}</p>
-            <p className="text-base text-grayscale-200 mt-[-5px]">
-              {item.description2}
+            <p className="text-[28px] dark:text-grayscale-200 text-grayscale-500 uppercase">
+              {item.description1}
             </p>
           </div>
         </div>

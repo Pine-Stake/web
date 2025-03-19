@@ -22,8 +22,10 @@ export function FAQs() {
   ];
 
   return (
-    <div className="w-full flex flex-col gap-8">
-      <h1 className="text-secondary-300 text-[45px] font-semibold">FAQs</h1>
+    <div className="w-full flex flex-col gap-8 font-onest">
+      <h1 className="dark:text-secondary-300 text-secondary-500 text-[45px] font-semibold">
+        FAQs
+      </h1>
       <div className="flex flex-col gap-6">
         {faqs.map((faq, index) => (
           <div key={index} className="rounded-lg">
@@ -36,22 +38,22 @@ export function FAQs() {
               onClick={() => toggleFAQ(index)}
             >
               <span
-                className={`text-base ${
+                className={`text-[23px] ${
                   openIndex === index
                     ? "text-grayscale-600"
-                    : "text-grayscale-100"
+                    : "dark:text-grayscale-100 text-grayscale-600"
                 }`}
               >
                 {faq.question}
               </span>
               {openIndex === index ? (
-                <Minus className="w-6 h-6 text-grayscale-600 border-2 border-grayscale-600 rounded-full p-1" />
+                <Minus className="w-6 h-6  text-grayscale-600 border-2 border-grayscale-600 rounded-full p-1" />
               ) : (
-                <Plus className="w-6 h-6 text-grayscale-100 border-2 border-grayscale-100 rounded-full p-1" />
+                <Plus className="w-6 h-6 dark:text-grayscale-100  text-grayscale-600 border-grayscale-600  border-2 dark:border-grayscale-100 rounded-full p-1" />
               )}
             </button>
             {openIndex === index && (
-              <div className="px-8 pb-4 pt-6 text-base text-grayscale-100 ">
+              <div className="px-8 pb-4 pt-6 text-base dark:text-grayscale-100 text-grayscale-600 ">
                 {faq.answer}
               </div>
             )}

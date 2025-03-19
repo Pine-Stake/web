@@ -9,7 +9,7 @@ export function Community() {
   ];
 
   return (
-    <div className="w-full flex flex-col lg:flex-row gap-8 bg-lime-green rounded-[40px] py-10 px-14 items-center md:mb-[80px]   mb-[40px]">
+    <div className="w-full flex flex-col lg:flex-row gap-8 bg-primary-300 rounded-[40px] py-10 px-14 items-center md:mb-[80px] font-onest  mb-[40px]">
       <h3 className="w-full text-base md:text-2xl text-center lg:text-start">
         Join the <b>Pine Stake</b> Community
       </h3>
