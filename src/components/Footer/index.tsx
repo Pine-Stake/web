@@ -1,22 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { footerLinks } from "@/constants/constants";
 
 export function Footer() {
-  const footerLinks = [
-    {
-      title: "Home",
-      links: ["Solutions", "Documentation", "About", "FAQ"],
-    },
-    {
-      title: "Security",
-      links: ["Audit reports", "Term of Use"],
-    },
-    {
-      title: "Community",
-      links: ["Twitter", "Discord", "Telegram", "LinkedIn"],
-    },
-  ];
-
   return (
     <footer className="w-full flex flex-col items-center dark:bg-dark-background-200 bg-background-200 py-14 px-6 gap-8 font-onest">
       <div className="max-w-[1920px] w-full flex flex-col xl:flex-row justify-between gap-10 items-start lg:px-16 px-6 py-0">

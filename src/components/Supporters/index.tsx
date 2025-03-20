@@ -1,10 +1,6 @@
 import Image from "next/image";
+import { logoSupporters } from "@/constants/constants";
 export function Supporters() {
-  const logoSupporters = [
-    { logo: "/solana.svg" },
-    { logo: "/polygon.svg" },
-    { logo: "/balancer.svg" },
-  ];
   return (
     <div className="w-full dark:bg-dark-background-200 bg-background-200 flex xl:flex-row flex-col items-center xl:justify-between p-[56px] rounded-[40px] gap-[40px] xl:gap-0 font-onest">
       <h1 className="dark:text-secondary-300 text-secondary-500 text-[32px] font-medium">

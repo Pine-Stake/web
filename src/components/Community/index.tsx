@@ -1,13 +1,7 @@
 import Link from "next/link";
+import { logoSocials } from "@/constants/constants";
 
 export function Community() {
-  const logoSocials = [
-    { logo: "/github.svg", href: "/" },
-    { logo: "/telegram.svg", href: "/" },
-    { logo: "/x.svg", href: "http://x.com/pinestake" },
-    { logo: "/discord.svg", href: "http://discord.gg/pinestake" },
-  ];
-
   return (
     <div className="w-full flex flex-col lg:flex-row gap-8 bg-primary-300 rounded-[40px] py-10 px-14 items-center md:mb-[80px] font-onest  mb-[40px]">
       <h3 className="w-full text-base md:text-2xl text-center lg:text-start">

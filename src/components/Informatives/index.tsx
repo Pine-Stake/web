@@ -1,33 +1,7 @@
 import Image from "next/image";
+import { informativesList } from "../../constants/constants";
 
 export function Informatives() {
-  const informativesList = [
-    {
-      lightIcon: "/light-green-sol.svg",
-      darkIcon: "/green-sol.svg",
-      value: "146K",
-      description1: "Sol",
-    },
-    {
-      lightIcon: "/light-green-graph.svg",
-      darkIcon: "/green-graph.svg",
-      value: "7.08%",
-      description1: "APY",
-    },
-    {
-      lightIcon: "/light-green-commission.svg",
-      darkIcon: "/green-commission.svg",
-      value: "0%",
-      description1: "FEE",
-    },
-    {
-      lightIcon: "/light-green-commission.svg",
-      darkIcon: "/green-commission.svg",
-      value: "35",
-      description1: "Holders",
-    },
-  ];
-
   return (
     <div
       id="informatives-div"

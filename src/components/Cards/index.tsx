@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { cardList } from "@/constants/constants";
 
 export function Cards() {
   const [flipState, setFlipState] = useState(Array(3).fill(0));
@@ -10,30 +11,6 @@ export function Cards() {
       prev.map((state, i) => (i === index ? state + 180 : state))
     );
   };
-
-  const cardList = [
-    {
-      title: "Education",
-      description:
-        "Teaching users about staking SOL, blockchain fundamentals, and decentralization.",
-      icon: "/education2.svg",
-      background: "/education.png",
-    },
-    {
-      title: "Empowerment",
-      description:
-        "Supporting creators in onboarding, minting, and thriving on Solana Ecosystem.",
-      icon: "/artist-empowerment.svg",
-      background: "/empowerment.png",
-    },
-    {
-      title: "Decentralization",
-      description:
-        "Operating a reliable validator node in Brazil, helping Solana become more resilient.",
-      icon: "/decentralization.svg",
-      background: "/decentralization.png",
-    },
-  ];
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-1 xl:grid-cols-3 gap-8 w-full font-onest">

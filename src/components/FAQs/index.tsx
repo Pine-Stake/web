@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import { faqs } from "@/constants/constants";
 
 export function FAQs() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -8,18 +9,6 @@ export function FAQs() {
   const toggleFAQ = (index: number) => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
-
-  const faqs = [
-    {
-      question: "What is a validator?",
-      answer:
-        "A validator is a node that participates in the consensus process of a blockchain. In the Solana network, validators secure the network by confirming transactions and adding new blocks. By staking your tokens with a validator, you help maintain the integrity of the blockchain.",
-    },
-    { question: "How to stake tokens?", answer: "Explanation about staking." },
-    { question: "What are the rewards?", answer: "Rewards explanation." },
-    { question: "Is my stake safe?", answer: "Security details." },
-    { question: "What is Pine Venture?", answer: "Info about Pine Venture." },
-  ];
 
   return (
     <div className="w-full flex flex-col gap-8 font-onest">
