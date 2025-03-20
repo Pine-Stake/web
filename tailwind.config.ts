@@ -9,59 +9,41 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-  		backgroundImage: {
-  			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-  			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
-  		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		},
   		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
-  			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
-  			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
-  			},
-  			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
-  			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			}
-  		}
+			'primary-100': '#BEF8BA',
+			'primary-200': '#8CF085',
+			'primary-300': '#2CD122',
+			'primary-400': '#1DA415',
+			'primary-500': '#198114',
+			'secondary-100': '#F4F9F8',
+			'secondary-200': '#DAEDE7',
+			'secondary-300': '#AED8CC',
+			'secondary-400': '#87C1B3',
+			'secondary-500': '#5EA395',
+			'background-100': '#FAFAFA',
+			'background-200': '#D0F2E0',
+			'dark-background-100': '#001A17',
+			'dark-background-200': '#002621',
+			'grayscale-100': '#F6F6F6',
+			'grayscale-200': '#D1D1D1',
+			'grayscale-300': '#888888',
+			'grayscale-400': '#5D5D5D',
+			'grayscale-500': '#454545',
+			'grayscale-600': '#262626',
+			'toggle-light': '#0026211A',
+			'toggle-dark': '#D0F2E01A',
+			
+  		},
+		  fontFamily: {
+			onest: ["Onest", "sans-serif"],
+		  },
+		  backgroundImage: {
+			"custom-gradient": "linear-gradient(to top, #D7F4E5 0%, #80D5B2 100%)",
+			"dark-custom-gradient": "linear-gradient(to top, #003D35 0%, #002621 100%)",
+		  },
   	}
   },
   plugins: [require("tailwindcss-animate")],
+  safelist: ["bg-secondary-300"],
 };
 export default config;
