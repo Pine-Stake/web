@@ -8,6 +8,7 @@ import { SliderInput } from "./NativeStaking/SliderInput";
 import BalanceInput from "./NativeStaking/BalanceInput";
 
 export function NativeStaking() {
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [darkMode, setDarkMode] = useState(
     typeof window !== "undefined" &&
       document.documentElement.classList.contains("dark")
@@ -63,8 +64,8 @@ export function NativeStaking() {
       />
       <StakingOptions
         stakingType={stakingType}
-        selectedIndex={0}
-        setSelectedIndex={() => {}}
+        selectedIndex={selectedIndex}
+        setSelectedIndex={setSelectedIndex}
       />
 
       <SliderInput

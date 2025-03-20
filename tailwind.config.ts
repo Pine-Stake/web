@@ -44,5 +44,6 @@ const config: Config = {
   	}
   },
   plugins: [require("tailwindcss-animate")],
+  safelist: ["bg-secondary-300"],
 };
 export default config;
