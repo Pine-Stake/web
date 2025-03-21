@@ -11,7 +11,10 @@ export function FAQs() {
   };
 
   return (
-    <div className="w-full flex flex-col gap-8 font-onest">
+    <div
+      id="faq"
+      className="w-full flex flex-col gap-8 font-onest scroll-mt-36"
+    >
       <h1 className="dark:text-secondary-300 text-secondary-500 text-[45px] font-semibold">
         FAQs
       </h1>

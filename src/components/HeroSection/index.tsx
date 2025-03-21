@@ -6,7 +6,7 @@ import { Informatives } from "../Informatives";
 
 export function HeroSection() {
   return (
-    <div className="flex flex-col p-0 m-0 w-full ">
+    <div className="flex flex-col p-0 m-0 w-full">
       <div className="dark:bg-dark-custom-gradient bg-custom-gradient w-full rounded-3xl flex flex-row items-center justify-between lg:px-16 lg:py-12 md:p-8 px-4 py-8  gap-12 xl:mt-[10px]">
         <div className="flex xl:flex-row flex-col w-full gap-8 justify-between">
           <div className="flex flex-col justify-between xl:w-1/2 gap-8">

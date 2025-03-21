@@ -28,11 +28,11 @@ export function ThemeToggle({
   return (
     <button onClick={toggleDarkMode} className="focus:outline-none">
       <Image
-        src="/logo-pine.svg"
-        alt="Logo"
-        width={30}
-        height={30}
-        className="w-[30px] xl:w-[40px]"
+        src={darkMode ? "/sun.svg" : "/moon.svg"}
+        alt="Toggle Theme"
+        width={24}
+        height={24}
+        className="w-[24px] h-[24px]"
       />
     </button>
   );

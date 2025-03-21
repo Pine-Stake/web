@@ -1,10 +1,9 @@
 import exp from "constants";
 
 export const menuLinks = [
-    { name: "Solutions", href: "/" },
-    { name: "Documentation", href: "/" },
-    { name: "About", href: "/" },
-    { name: "FAQ", href: "/" },
+    { name: "Documentation", href: "https://docs.pinestake.com" },
+    { name: "About", href: "#about" },
+    { name: "FAQ", href: "#faq" },
   ];
   
   export const iconLinksLight = [
@@ -13,8 +12,7 @@ export const menuLinks = [
   ];
   
   export const iconLinksDark = [
-    { src: "/dark-x.svg", alt: "X", href: "/" },
-    { src: "/dark-discord.svg", alt: "Discord", href: "/" },
+    { src: "/moon.svg", alt: "X", href: "/" },
   ];
   
   export const actionLinks = [
@@ -97,27 +95,34 @@ export const menuLinks = [
         { logo: "/solana.svg" },
         { logo: "/polygon.svg" },
         { logo: "/balancer.svg" },
+        { logo: "/solana.svg" },
+        { logo: "/polygon.svg" },
+        { logo: "/balancer.svg" },
+        { logo: "/solana.svg" },
+        { logo: "/polygon.svg" },
+        { logo: "/balancer.svg" },
+        
       ];
   
       export const cardList = [
         {
           title: "Education",
           description:
-            "Teaching users about staking SOL, blockchain fundamentals, and decentralization.",
+            "We teach users the knowledge they need to navigate the Solana ecosystem, from staking SOL to understanding blockchain fundamentals and the importance of decentralization.",
           icon: "/education2.svg",
           background: "/education.png",
         },
         {
           title: "Empowerment",
           description:
-            "Supporting creators in onboarding, minting, and thriving on Solana Ecosystem.",
+            "We support creators and developers by helping them onboard, mint their first assets, and establish themselves in the Solana ecosystem, ensuring they have the tools to grow and succeed.",
           icon: "/artist-empowerment.svg",
           background: "/empowerment.png",
         },
         {
           title: "Decentralization",
           description:
-            "Operating a reliable validator node in Brazil, helping Solana become more resilient.",
+            "By operating a reliable validator node in Brazil, we contribute to Solana’s security, stability, and decentralization, ensuring a more distributed and resilient network.",
           icon: "/decentralization.svg",
           background: "/decentralization.png",
         },

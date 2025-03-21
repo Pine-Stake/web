@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ThemeToggle } from "./ThemeToggle";
 
 interface ActionIconsProps {
   iconLinks: { src: string; alt: string; href: string }[];
@@ -9,22 +10,17 @@ interface ActionIconsProps {
     bgColor: string;
     textColor: string;
   }[];
+  onToggle: (darkMode: boolean) => void;
 }
 
-export function ActionIcons({ iconLinks, actionLinks }: ActionIconsProps) {
+export function ActionIcons({
+  iconLinks,
+  actionLinks,
+  onToggle,
+}: ActionIconsProps) {
   return (
     <div className="hidden xl:flex flex-row items-center xl:text-xl md:text-base text-sm gap-4">
-      {iconLinks.map((icon, index) => (
-        <Link key={index} href={icon.href}>
-          <Image
-            src={icon.src}
-            width={30}
-            height={30}
-            alt={icon.alt}
-            className="w-[25px] xl:w-[25px]"
-          />
-        </Link>
-      ))}
+      <ThemeToggle onToggle={onToggle} />
       {actionLinks.map((action, index) => (
         <Link
           key={index}

@@ -60,6 +60,24 @@ export function PastPerformance() {
             rel="noopener noreferrer"
           >
             <Image
+              src="/logo-pine.svg"
+              width={20}
+              height={20}
+              alt="performance"
+              className="flex-end"
+            />
+            <div className="flex flex-col leading-3">
+              <span className="md:text-base text-base">Pine Stake</span>
+              <p className="md:text-[13px] text-[8px]">9.56% APY</p>
+            </div>
+          </Link>
+
+          <Link
+            className="md:py-4 px-2 justify-start md:px-6 border dark:border-grayscale-100 border-grayscale-600 rounded-2xl dark:text-grayscale-100 text-grayscale-600 text-base flex md:gap-4 gap-2 items-center  md:h-[72px] h-[56px] w-full"
+            href="/"
+            rel="noopener noreferrer"
+          >
+            <Image
               src="/sol-novo.svg"
               width={20}
               height={20}
@@ -67,31 +85,9 @@ export function PastPerformance() {
               className="flex-end"
             />
             <div className="flex flex-col leading-3">
-              <span className="md:text-[23px] text-base">SOL</span>
-              <p className="md:text-[13px] text-[8px]">9.56% APY</p>
+              <span className="md:text-base text-[11px]">Avg. Validator</span>
+              <p className="md:text-[13px] text-[8px]">7.56% APY</p>
             </div>
-          </Link>
-
-          <Link
-            className="md:py-4 px-2 justify-start md:px-6 border dark:border-grayscale-100 border-grayscale-600 rounded-2xl dark:text-grayscale-100 text-grayscale-600 text-base flex md:gap-2 gap-2 items-center  md:h-[72px] h-[56px] w-full"
-            href="/"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/plus-dark.svg"
-              className="dark:hidden"
-              width={20}
-              height={20}
-              alt="performance"
-            />
-            <Image
-              src="/plus.svg"
-              className="hidden dark:block"
-              width={20}
-              height={20}
-              alt="performance"
-            />
-            <span className="md:text-base text-[11px]">Compare To</span>
           </Link>
         </div>
 

@@ -1,32 +1,57 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { NavLinks } from "./NavLinks";
 import { ActionIcons } from "./ActionIcons";
 import { MobileMenu } from "./MobileMenu";
+import Image from "next/image";
 import {
   menuLinks,
   iconLinksLight,
   iconLinksDark,
   actionLinks,
 } from "../../constants/constants";
+import Link from "next/link";
 
 export function Header() {
   const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains("dark");
+    setDarkMode(isDark);
+  }, []);
+
   const iconLinks = darkMode ? iconLinksLight : iconLinksDark;
 
   return (
-    <div className="w-full flex items-center justify-between py-7 max-w-[1920px] font-onest">
+    <div className="scroll-mt-36 w-full flex items-center justify-between py-7 font-onest relative sticky top-0 bg-background-100 dark:bg-dark-background-100 z-50 px-8">
       <div className="flex items-center gap-20">
-        <div>
-          <ThemeToggle onToggle={setDarkMode} />
-        </div>
+        <Link
+          href="/"
+          className="cursor-pointer"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
+          <Image
+            src="/logo-pine.svg"
+            alt="Logo"
+            width={40}
+            height={40}
+            className="w-[40px] h-auto"
+            priority
+          />
+        </Link>
         <NavLinks menuLinks={menuLinks} />
       </div>
 
-      <ActionIcons iconLinks={iconLinks} actionLinks={actionLinks} />
+      <ActionIcons
+        iconLinks={iconLinks}
+        actionLinks={actionLinks}
+        onToggle={setDarkMode}
+      />
 
       <div className="xl:hidden flex items-center gap-4 xl:text-xl md:text-base text-sm">
         <button onClick={() => setMenuOpen(true)} className="text-primary-300">

@@ -54,7 +54,7 @@ export function Cards() {
                 <h2 className="text-transparent">_</h2>
                 <button onClick={() => handleFlip(index)}>
                   <Image
-                    src="/minus-dark-rounded.svg"
+                    src="/minus-light-rounded.svg"
                     alt="Close"
                     width={40}
                     height={40}
