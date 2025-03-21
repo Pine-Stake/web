@@ -6,6 +6,8 @@ import { ToggleButton } from "./NativeStaking/ToggleButton";
 import { StakingOptions } from "./NativeStaking/StakingOptions";
 import { SliderInput } from "./NativeStaking/SliderInput";
 import BalanceInput from "./NativeStaking/BalanceInput";
+import { SolanaProvider } from "../connect/solana-provider";
+import { CustomConnectWalletButton } from "../connect";
 
 export function NativeStaking() {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
@@ -75,12 +77,9 @@ export function NativeStaking() {
         rewardPercentage={rewardPercentage}
       />
 
-      <Link
-        href="/"
-        className="w-full bg-primary-300 text-grayscale-600 py-3 rounded-lg text-base flex flex-row items-center justify-center font-semibold"
-      >
-        {isStaking ? "Connect" : "Unstake"}
-      </Link>
+      <SolanaProvider>
+        <CustomConnectWalletButton />
+      </SolanaProvider>
     </div>
   );
 }
