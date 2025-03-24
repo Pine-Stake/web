@@ -10,13 +10,12 @@ export function Supporters() {
 
   useEffect(() => {
     if (!containerRef.current) return;
-
     const containerWidth = containerRef.current.scrollWidth / 2;
     const finalPosition = -containerWidth;
 
     const controls = animate(xTranslation, [0, finalPosition], {
       ease: "linear",
-      duration: 20,
+      duration: 25,
       repeat: Infinity,
       repeatType: "loop",
       repeatDelay: 0,
@@ -38,12 +37,15 @@ export function Supporters() {
           style={{ x: xTranslation }}
         >
           {[...logoSupporters, ...logoSupporters].map((item, index) => (
-            <div key={index} className="flex-shrink-0 w-[154px]">
+            <div
+              key={index}
+              className="flex-shrink-0 w-[154px] flex flex-row items-center justify-center"
+            >
               <Image
                 src={item.logo}
                 alt="Supporter Logo"
-                width={154}
-                height={154}
+                width={147}
+                height={32}
               />
             </div>
           ))}

@@ -19,10 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/logo-pine.svg" sizes="any" />
       </head>
       <body
-        className={`${inter.className} min-h-screen scroll-smooth bg-background-100 dark:bg-dark-background-100 w-full flex flex-col items-center justify-center`}
+        className={`${inter.className} min-h-screen scroll-smooth bg-background-100 dark:bg-dark-background-100 w-full flex flex-col items-center  justify-between`}
       >
         <Header />
         <div className="w-full lg:px-16 px-6 py-0 flex flex-col items-center justify-center  max-w-[1920px] ">

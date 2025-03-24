@@ -1,12 +1,16 @@
-import { Dispatch, SetStateAction } from "react";
+"use client";
+import { Dispatch, SetStateAction, useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { TokenSelect } from "./TokenSelect";
 
 interface BalanceInputProps {
   walletBalance: number;
   coins: string;
   setCoins: Dispatch<SetStateAction<string>>;
   usdValue: number;
+  isStaking: boolean;
+  selectedToken: string;
+  setSelectedToken: Dispatch<SetStateAction<string>>;
 }
 
 export default function BalanceInput({
@@ -14,12 +18,46 @@ export default function BalanceInput({
   coins,
   setCoins,
   usdValue,
+  isStaking,
+  selectedToken,
+  setSelectedToken,
 }: BalanceInputProps) {
+  const [displayValue, setDisplayValue] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const formatWithCommas = (value: string) => {
+    const parts = value.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.length > 1 ? `${parts[0]}.${parts[1]}` : parts[0];
+  };
+
+  useEffect(() => {
+    if (coins === "0") {
+      setDisplayValue("");
+    } else if (coins) {
+      setDisplayValue(formatWithCommas(coins));
+    } else {
+      setDisplayValue("");
+    }
+  }, [coins]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value.replace(/[^0-9.]/g, "");
+    value = value.replace(/(\..*)\./g, "$1");
+
+    if (value.length > 1 && value[0] === "0" && value[1] !== ".") {
+      value = value.substring(1);
+    }
+
+    setCoins(value || "0");
+    setDisplayValue(value ? formatWithCommas(value) : "");
+  };
+
   return (
     <div className="flex flex-col items-center justify-between">
       <div className="flex flex-row w-full justify-between items-center pb-3">
         <span className="dark:text-grayscale-100 text-grayscale-600">
-          Stake
+          {isStaking ? "Stake" : "Unstake"}
         </span>
         <div className="flex items-center gap-2">
           <div className="relative w-4 h-4">
@@ -43,59 +81,34 @@ export default function BalanceInput({
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}{" "}
-            SOL
+            {selectedToken}
           </span>
         </div>
       </div>
 
       <div className="flex flex-row md:gap-4 gap-2 items-center justify-between border dark:border-grayscale-100 border-grayscale-600 px-4 py-3 w-full rounded-2xl">
-        <Link
-          href="/"
-          className="flex flex-row md:gap-4 gap-2 items-center justify-between border dark:border-grayscale-100 border-grayscale-600 px-4 py-3 rounded-2xl"
-        >
-          <Image src="/sol-novo.svg" width={18} height={14} alt="sol" />
-          <span className="dark:text-grayscale-100 text-grayscale-600 md:text-base text-[11px]">
-            SOL
-          </span>
-          <div className="relative">
-            <Image
-              src="/light-vector.svg"
-              width={8}
-              height={6}
-              alt="arrow"
-              className="block dark:hidden"
-            />
-            <Image
-              src="/dark-vector.svg"
-              width={8}
-              height={6}
-              alt="arrow"
-              className="hidden dark:block"
-            />
-          </div>
-        </Link>
+        <TokenSelect
+          selectedToken={selectedToken}
+          setSelectedToken={setSelectedToken}
+        />
 
-        <div className="flex flex-col items-end gap-1 w-2/3">
+        <div className="flex flex-col items-end gap-1 w-2/3 min-w-0">
           <input
+            ref={inputRef}
             type="text"
-            inputMode="numeric"
-            dir="rtl"
+            inputMode="decimal"
             className="dark:bg-dark-background-200 bg-background-200 text-right outline-none w-full text-3xl dark:text-grayscale-100 text-grayscale-600 placeholder:text-grayscale-300"
-            value={
-              coins
-                ? Number(coins).toLocaleString("en-US", {
-                    minimumFractionDigits: 0,
-                    maximumFractionDigits: 2,
-                  })
-                : ""
-            }
-            onChange={(e) => {
-              const value = e.target.value.replace(/\D/g, "");
-              setCoins(value);
+            value={displayValue}
+            onChange={handleChange}
+            placeholder="0.00"
+            onFocus={() => {
+              if (inputRef.current) {
+                const length = inputRef.current.value.length;
+                inputRef.current.setSelectionRange(length, length);
+              }
             }}
-            placeholder="0"
           />
-          <span className="text-xs text-grayscale-300">
+          <span className="text-xs text-grayscale-300 truncate w-full text-right">
             {usdValue > 0
               ? usdValue.toLocaleString("en-US", {
                   style: "currency",

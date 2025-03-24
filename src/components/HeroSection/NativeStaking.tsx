@@ -1,13 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
 import { ToggleButton } from "./NativeStaking/ToggleButton";
 import { StakingOptions } from "./NativeStaking/StakingOptions";
 import { SliderInput } from "./NativeStaking/SliderInput";
 import BalanceInput from "./NativeStaking/BalanceInput";
 import { SolanaProvider } from "../connect/solana-provider";
 import { CustomConnectWalletButton } from "../connect";
+import { stakingType } from "../../constants/constants";
 
 export function NativeStaking() {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
@@ -30,29 +29,13 @@ export function NativeStaking() {
   }, []);
 
   const railBackgroundColor = darkMode ? "#D0F2E01A" : "#0026211A";
-  const [coins, setCoins] = useState(" ");
+  const [coins, setCoins] = useState("0");
   const [isStaking, setIsStaking] = useState(true);
   const conversionRate = 131.45;
   const usdValue = coins ? Number(coins) * conversionRate : 0;
   const walletBalance = 0.08;
   const rewardPercentage = (Number(coins) / 100) * 5;
-
-  const stakingType = [
-    {
-      iconGreen: "/tabler_clock_green.svg",
-      iconGray: "/tabler_clock_gray.svg",
-      title: "Native • APY 8.19%",
-      description: "Receive",
-      amount: "0.0000 pineSOL",
-    },
-    {
-      iconGreen: "/lightning_bolt_green.svg",
-      iconGray: "/lightning_bolt_gray.svg",
-      title: "Liquid • APY 8.61%",
-      description: "Receive",
-      amount: "0.0000 SOL",
-    },
-  ];
+  const [selectedToken, setSelectedToken] = useState("SOL");
 
   return (
     <div className="dark:bg-dark-background-200 font-onest bg-background-200 flex flex-col rounded-3xl md:p-10 w-full px-4 py-8 gap-[1.75rem]">
@@ -63,19 +46,25 @@ export function NativeStaking() {
         coins={coins}
         setCoins={setCoins}
         usdValue={usdValue}
+        isStaking={isStaking}
+        selectedToken={selectedToken}
+        setSelectedToken={setSelectedToken}
       />
+
       <StakingOptions
         stakingType={stakingType}
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
       />
 
-      <SliderInput
-        coins={coins}
-        setCoins={setCoins}
-        railBackgroundColor={railBackgroundColor}
-        rewardPercentage={rewardPercentage}
-      />
+      {isStaking && (
+        <SliderInput
+          coins={coins}
+          setCoins={setCoins}
+          railBackgroundColor={railBackgroundColor}
+          rewardPercentage={rewardPercentage}
+        />
+      )}
 
       <SolanaProvider>
         <CustomConnectWalletButton />

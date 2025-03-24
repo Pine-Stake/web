@@ -29,11 +29,11 @@ export function Informatives() {
             />
           </div>
 
-          <p className="text-[28px] dark:text-grayscale-100 text-grayscale-600">
+          <p className="md:text-[28px] text-xl dark:text-grayscale-100 text-grayscale-600">
             {item.value}
           </p>
           <div className="flex flex-col">
-            <p className="text-[28px] dark:text-grayscale-200 text-grayscale-500 uppercase">
+            <p className="md:text-[28px] text-xl dark:text-grayscale-200 text-grayscale-500 uppercase">
               {item.description1}
             </p>
           </div>

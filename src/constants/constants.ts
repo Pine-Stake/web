@@ -18,7 +18,7 @@ export const menuLinks = [
   export const actionLinks = [
     {
       name: "Institutional",
-      href: "/",
+      href: "mailto:contato@pinestake.com?subject=Institutional Stake",
       bgColor: "bg-primary-300",
       textColor: "text-dark-background-100",
     },
@@ -58,8 +58,8 @@ export const menuLinks = [
     ];
 
     export  const logoSocials = [
-      { logo: "/github.svg", href: "/" },
-      { logo: "/telegram.svg", href: "/" },
+      // { logo: "/github.svg", href: "/" },
+      // { logo: "/telegram.svg", href: "/" },
       { logo: "/x.svg", href: "http://x.com/pinestake" },
       { logo: "/discord.svg", href: "http://discord.gg/pinestake" },
     ];
@@ -68,39 +68,63 @@ export const menuLinks = [
       {
         question: "What is a validator?",
         answer:
-          "A validator is a node that participates in the consensus process of a blockchain. In the Solana network, validators secure the network by confirming transactions and adding new blocks. By staking your tokens with a validator, you help maintain the integrity of the blockchain.",
+          "A validator is a server that helps run and secure the Solana blockchain. It verifies transactions, produces blocks, and keeps the network decentralized. When you stake with a validator, you're helping maintain the network and can earn rewards in return.",
       },
-      { question: "How to stake tokens?", answer: "Explanation about staking." },
-      { question: "What are the rewards?", answer: "Rewards explanation." },
-      { question: "Is my stake safe?", answer: "Security details." },
-      { question: "What is Pine Venture?", answer: "Info about Pine Venture." },
+      {
+        question: "How to stake my SOL?",
+        answer:
+          "You can stake your SOL using a wallet like Phantom or Solflare. Just choose Pine Stake as your validator, enter the amount you want to stake, and confirm the transaction. Your SOL stays in your wallet and is never transferred to us.",
+      },
+      {
+        question: "What are the rewards?",
+        answer:
+          "Stakers receive rewards in SOL, typically around 7-9% APY depending on network conditions. These rewards are paid automatically and can vary slightly over time.",
+      },
+      {
+        question: "Is my stake safe?",
+        answer:
+          "Yes. Your SOL never leaves your wallet. Staking is a delegation, not a transfer. Only you can move or unstake your tokens. Pine Stake follows strict security standards and has 24/7 monitoring to ensure uptime and safety.",
+      },
+      {
+        question: "What is Pine Ventures?",
+        answer:
+          "Pine Ventures is our initiative to support Brazilian creators, developers, and builders in the Web3 space through funding, visibility, and technical support.",
+      },
     ];
 
     export const footerLinks = [
-        {
-          title: "Home",
-          links: ["Solutions", "Documentation", "About", "FAQ"],
-        },
-        {
-          title: "Security",
-          links: ["Audit reports", "Term of Use"],
-        },
-        {
-          title: "Community",
-          links: ["Twitter", "Discord", "Telegram", "LinkedIn"],
-        },
-      ];
+      {
+        title: "Home",
+        links: [
+          { label: "Documentation", href: "https://docs.pinestake.com" },
+          { label: "About", href: "/#about" },
+          { label: "FAQ", href: "/#faq" },
+        ],
+      },
+      {
+        title: "Security",
+        links: [
+          { label: "Security Info", href: "/security-info" },
+          { label: "Terms of Use", href: "/terms-of-use" },
+        ],
+      },
+      {
+        title: "Community",
+        links: [
+          { label: "Twitter", href: "https://twitter.com/PineStake" },
+          { label: "Discord", href: "https://discord.gg/pinestake" },
+        ],
+      },
+    ];
     
       export const logoSupporters = [
-        { logo: "/solana.svg" },
-        { logo: "/polygon.svg" },
-        { logo: "/balancer.svg" },
-        { logo: "/solana.svg" },
-        { logo: "/polygon.svg" },
-        { logo: "/balancer.svg" },
-        { logo: "/solana.svg" },
-        { logo: "/polygon.svg" },
-        { logo: "/balancer.svg" },
+        { logo: "/logos/edgevana.svg" },
+        { logo: "/logos/jagpool.svg" },
+        { logo: "/logos/aero.svg" },
+        { logo: "/logos/thevault.svg" },
+        { logo: "/logos/solblaze.svg" },
+        { logo: "/logos/solanafoundation.svg" },
+        { logo: "/logos/jpool.svg" },
         
       ];
   
@@ -128,3 +152,19 @@ export const menuLinks = [
         },
       ];
     
+      export const stakingType = [
+          {
+            iconGreen: "/tabler_clock_green.svg",
+            iconGray: "/tabler_clock_gray.svg",
+            title: "Native • APY 8.19%",
+            description: "Receive",
+            amount: "0.0000 SOL",
+          },
+          {
+            iconGreen: "/lightning_bolt_green.svg",
+            iconGray: "/lightning_bolt_gray.svg",
+            title: "Liquid • APY 8.61%",
+            description: "Receive",
+            amount: "0.0000 pineSOL",
+          },
+        ];

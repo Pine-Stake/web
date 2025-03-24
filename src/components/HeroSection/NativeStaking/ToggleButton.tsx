@@ -13,7 +13,7 @@ export function ToggleButton({ isStaking, setIsStaking }: ToggleButtonProps) {
         initial={{ x: isStaking ? "0%" : "100%" }}
         animate={{ x: isStaking ? "2%" : "98%" }}
         transition={{ type: "spring", stiffness: 200, damping: 20 }}
-        className="absolute top-[6px] bottom-0 left-0 w-1/2 h-[80%] bg-primary-300 rounded-lg border border-primary-200 "
+        className="absolute top-[6px] bottom-0 left-0 w-1/2 h-[80%] bg-primary-300 rounded-lg border border-primary-200 outline-none"
       />
       <button
         className={`flex-1 py-2 text-center relative z-10 

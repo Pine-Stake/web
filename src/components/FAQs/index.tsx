@@ -24,7 +24,7 @@ export function FAQs() {
             <button
               className={`w-full flex justify-between items-center text-left p-4 transition-colors duration-300 rounded-2xl focus:ring-0 focus:outline-none focus-visible:outline-none active:outline-none ${
                 openIndex === index
-                  ? "bg-secondary-500 border-secondary-500"
+                  ? "bg-secondary-500 border-2 border-secondary-500"
                   : "bg-transparent border-2 border-secondary-500"
               }`}
               onClick={() => toggleFAQ(index)}
@@ -44,11 +44,13 @@ export function FAQs() {
                 <Plus className="w-6 h-6 dark:text-grayscale-100  text-grayscale-600 border-grayscale-600  border-2 dark:border-grayscale-100 rounded-full p-1" />
               )}
             </button>
-            {openIndex === index && (
-              <div className="px-8 pb-4 pt-6 text-base dark:text-grayscale-100 text-grayscale-600 ">
-                {faq.answer}
-              </div>
-            )}
+            <div
+              className={`overflow-hidden transition-all duration-2 00 ease-in-out px-8 ${
+                openIndex === index ? "max-h-[500px] pb-4 pt-6" : "max-h-0"
+              } text-base dark:text-grayscale-100 text-grayscale-600`}
+            >
+              {faq.answer}
+            </div>
           </div>
         ))}
       </div>

@@ -12,10 +12,13 @@ import {
   actionLinks,
 } from "../../constants/constants";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 export function Header() {
   const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const isDark = document.documentElement.classList.contains("dark");
@@ -32,7 +35,11 @@ export function Header() {
           className="cursor-pointer"
           onClick={(e) => {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            if (pathname === "/") {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+              router.push("/");
+            }
           }}
         >
           <Image

@@ -67,7 +67,7 @@ export function PastPerformance() {
               className="flex-end"
             />
             <div className="flex flex-col leading-3">
-              <span className="md:text-base text-base">Pine Stake</span>
+              <span className="md:text-base text-[11px]">Pine Stake</span>
               <p className="md:text-[13px] text-[8px]">9.56% APY</p>
             </div>
           </Link>

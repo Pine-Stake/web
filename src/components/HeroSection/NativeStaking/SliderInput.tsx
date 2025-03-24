@@ -14,24 +14,48 @@ export function SliderInput({
   railBackgroundColor,
   rewardPercentage,
 }: SliderInputProps) {
+  const formatNumber = (num: number) => {
+    if (num >= 1000000) {
+      return (num / 1000000).toFixed(1) + "M";
+    }
+    return num.toLocaleString("en-US", {
+      maximumFractionDigits: 1,
+      minimumFractionDigits: 0,
+    });
+  };
+
   return (
     <div className="w-full flex flex-col items-center">
       <div className="flex flex-row justify-between font-onest text-[11px] dark:text-grayscale-100 text-grayscale-600 w-full mb-2">
         <p>Total</p>
       </div>
-      <div className="flex flex-row justify-between items-center w-full">
-        <h3 className="flex flex-row items-center gap-2 text-[32px] dark:text-grayscale-100 text-grayscale-600">
-          {coins.trim() === "" ? "0" : coins}
-          <p className="text-[11px] font-normal mt-2">SOL</p>
-        </h3>
-        <h3 className="text-[32px] dark:text-grayscale-100 text-grayscale-600 flex flex-row items-center gap-2">
-          ~{rewardPercentage.toFixed(1)}
-          <p className="text-[11px] font-normal mt-2">SOL/year</p>
-        </h3>
+      <div className="flex flex-row justify-between items-center w-full gap-4">
+        <div className="min-w-0 flex-1">
+          <div className="flex items-baseline gap-2 truncate">
+            <h3 className="text-[32px] dark:text-grayscale-100 text-grayscale-600 truncate">
+              {coins.trim() === "" ? "0" : formatNumber(Number(coins))}
+            </h3>
+            <p className="text-[11px] font-normal dark:text-grayscale-100 text-grayscale-600">
+              SOL
+            </p>
+          </div>
+        </div>
+
+        <div className="min-w-0 flex-1">
+          <div className="flex items-baseline gap-2 justify-end truncate">
+            <h3 className="text-[32px] dark:text-grayscale-100 text-grayscale-600 truncate">
+              ~{formatNumber(rewardPercentage)}
+            </h3>
+            <p className="text-[11px] font-normal dark:text-grayscale-100 text-grayscale-600">
+              SOL/year
+            </p>
+          </div>
+        </div>
       </div>
+
       <Slider
         min={0}
-        className="mt-2"
+        className="mt-2 w-full"
         max={200}
         value={Number(coins) || 0}
         onChange={(value) => setCoins(String(value))}

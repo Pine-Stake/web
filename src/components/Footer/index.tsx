@@ -27,8 +27,18 @@ export function Footer() {
                       key={linkIndex}
                       className="dark:text-grayscale-100 text-grayscale-600 text-base hover:underline cursor-pointer"
                     >
-                      <Link href="/" target="_blank" rel="noopener noreferrer">
-                        {link}
+                      <Link
+                        href={link.href}
+                        target={
+                          link.href.startsWith("http") ? "_blank" : "_self"
+                        }
+                        rel={
+                          link.href.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                      >
+                        {link.label}
                       </Link>
                     </li>
                   ))}
@@ -39,7 +49,12 @@ export function Footer() {
         </div>
 
         <div className="xl:w-1/3 w-full flex flex-col items-end justify-end xl:items-end">
-          <button className="dark:bg-dark-background-100 bg-background-100 flex items-center justify-between px-6 py-4 rounded-full text-white hover:bg-dark-400 transition-all w-full xl:max-w-[550px] relative">
+          <Link
+            className="dark:bg-dark-background-100 bg-background-100 flex items-center justify-between px-6 py-4 rounded-full text-white hover:bg-dark-400 transition-all w-full xl:max-w-[550px] relative"
+            href="http://discord.gg/pinestake"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span className="text-sm md:text-base dark:text-secondary-300 text-secondary-500">
               Join our community!
             </span>
@@ -51,7 +66,7 @@ export function Footer() {
                 alt="arrow"
               />
             </div>
-          </button>
+          </Link>
         </div>
       </div>
       <div className="w-2/3 border-t border-secondary-500 pt-4 text-sm text-grayscale-400 text-start">
