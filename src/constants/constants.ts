@@ -12,7 +12,7 @@ export const menuLinks = [
   ];
   
   export const iconLinksDark = [
-    { src: "/moon.svg", alt: "X", href: "/" },
+    { src: "/Moon.svg", alt: "X", href: "/" },
   ];
   
   export const actionLinks = [
