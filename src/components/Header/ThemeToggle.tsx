@@ -28,7 +28,7 @@ export function ThemeToggle({
   return (
     <button onClick={toggleDarkMode} className="focus:outline-none">
       <Image
-        src={darkMode ? "/sun.svg" : "/moon.svg"}
+        src={darkMode ? "/Sun.svg" : "/Moon.svg"}
         alt="Toggle Theme"
         width={24}
         height={24}
