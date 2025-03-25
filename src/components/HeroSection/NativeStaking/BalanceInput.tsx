@@ -11,6 +11,8 @@ interface BalanceInputProps {
   isStaking: boolean;
   selectedToken: string;
   setSelectedToken: Dispatch<SetStateAction<string>>;
+  selectedButton: "half" | "max" | null;
+  setSelectedButton: Dispatch<SetStateAction<"half" | "max" | null>>;
 }
 
 export default function BalanceInput({
@@ -21,6 +23,8 @@ export default function BalanceInput({
   isStaking,
   selectedToken,
   setSelectedToken,
+  selectedButton,
+  setSelectedButton,
 }: BalanceInputProps) {
   const [displayValue, setDisplayValue] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -53,6 +57,11 @@ export default function BalanceInput({
     setDisplayValue(value ? formatWithCommas(value) : "");
   };
 
+  const handleSetValue = (percentage: number) => {
+    const newValue = (walletBalance * percentage).toFixed(2);
+    setCoins(newValue);
+  };
+
   return (
     <div className="flex flex-col items-center justify-between">
       <div className="flex flex-row w-full justify-between items-center pb-3">
@@ -83,6 +92,37 @@ export default function BalanceInput({
             })}{" "}
             {selectedToken}
           </span>
+          <button
+            className={`border px-2 py-1 rounded-md text-xs
+    ${
+      selectedButton === "half"
+        ? "bg-grayscale-200 text-grayscale-600 border-grayscale-200"
+        : "dark:border-grayscale-100 border-grayscale-600 dark:text-grayscale-100  text-grayscale-600"
+    }`}
+            onClick={() => {
+              const newValue = (walletBalance * 0.5).toFixed(2);
+              setCoins(newValue);
+              setSelectedButton("half");
+            }}
+          >
+            HALF
+          </button>
+
+          <button
+            className={`border px-2 py-1 rounded-md text-xs
+    ${
+      selectedButton === "max"
+        ? "bg-grayscale-200 text-grayscale-600 border-grayscale-200"
+        : "dark:border-grayscale-100 border-grayscale-600 dark:text-grayscale-100 text-grayscale-600"
+    }`}
+            onClick={() => {
+              const newValue = (walletBalance * 1).toFixed(2);
+              setCoins(newValue);
+              setSelectedButton("max");
+            }}
+          >
+            MAX
+          </button>
         </div>
       </div>
 

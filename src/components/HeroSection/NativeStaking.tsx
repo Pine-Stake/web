@@ -36,6 +36,9 @@ export function NativeStaking() {
   const walletBalance = 0.08;
   const rewardPercentage = (Number(coins) / 100) * 5;
   const [selectedToken, setSelectedToken] = useState("SOL");
+  const [selectedButton, setSelectedButton] = useState<"half" | "max" | null>(
+    null
+  );
 
   return (
     <div className="dark:bg-dark-background-200 font-onest bg-background-200 flex flex-col rounded-3xl md:p-10 w-full px-4 py-8 gap-[1.75rem]">
@@ -49,6 +52,8 @@ export function NativeStaking() {
         isStaking={isStaking}
         selectedToken={selectedToken}
         setSelectedToken={setSelectedToken}
+        selectedButton={selectedButton}
+        setSelectedButton={setSelectedButton}
       />
 
       <StakingOptions
