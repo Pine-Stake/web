@@ -15,20 +15,7 @@ export const menuLinks = [
     { src: "/Moon.svg", alt: "X", href: "/" },
   ];
   
-  export const actionLinks = [
-    {
-      name: "Institutional",
-      href: "mailto:contato@pinestake.com?subject=Institutional Stake",
-      bgColor: "bg-primary-300",
-      textColor: "text-dark-background-100",
-    },
-    {
-      name: "Stake now",
-      href: "/",
-      bgColor: "bg-secondary-300",
-      textColor: "text-dark-background-100",
-    },
-  ];
+
   
    export const informativesList = [
       {
