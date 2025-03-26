@@ -4,7 +4,6 @@ import { ToggleButton } from "./NativeStaking/ToggleButton";
 import { StakingOptions } from "./NativeStaking/StakingOptions";
 import { SliderInput } from "./NativeStaking/SliderInput";
 import BalanceInput from "./NativeStaking/BalanceInput";
-import { SolanaProvider } from "../connect/solana-provider";
 import { CustomConnectWalletButton } from "../connect";
 import { stakingType } from "../../constants/constants";
 
@@ -71,9 +70,7 @@ export function NativeStaking() {
         />
       )}
 
-      <SolanaProvider>
-        <CustomConnectWalletButton />
-      </SolanaProvider>
+      <CustomConnectWalletButton isStaking={isStaking} />
     </div>
   );
 }

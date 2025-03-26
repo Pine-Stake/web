@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { ThemeToggle } from "./ThemeToggle";
 import { NavLinks } from "./NavLinks";
 import { ActionIcons } from "./ActionIcons";
 import { MobileMenu } from "./MobileMenu";
@@ -9,7 +8,6 @@ import {
   menuLinks,
   iconLinksLight,
   iconLinksDark,
-  actionLinks,
 } from "../../constants/constants";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -54,11 +52,7 @@ export function Header() {
         <NavLinks menuLinks={menuLinks} />
       </div>
 
-      <ActionIcons
-        iconLinks={iconLinks}
-        actionLinks={actionLinks}
-        onToggle={setDarkMode}
-      />
+      <ActionIcons iconLinks={iconLinks} onToggle={setDarkMode} />
 
       <div className="xl:hidden flex items-center gap-4 xl:text-xl md:text-base text-sm">
         <button onClick={() => setMenuOpen(true)} className="text-primary-300">

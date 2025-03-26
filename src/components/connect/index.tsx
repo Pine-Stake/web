@@ -26,7 +26,11 @@ export function ConnectWalletButton() {
 }
 
 // Alternative custom button implementation if you want more control
-export function CustomConnectWalletButton() {
+export function CustomConnectWalletButton({
+  isStaking,
+}: {
+  isStaking: boolean;
+}) {
   const {
     wallet,
     publicKey,
@@ -46,10 +50,10 @@ export function CustomConnectWalletButton() {
   if (!mounted) return null;
 
   const handleClick = () => {
-    if (connected) {
-      disconnect();
-    } else {
+    if (!connected) {
       setVisible(true);
+    } else {
+      disconnect(); 
     }
   };
 
