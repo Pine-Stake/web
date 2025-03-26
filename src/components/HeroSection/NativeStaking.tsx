@@ -7,7 +7,7 @@ import BalanceInput from "./NativeStaking/BalanceInput";
 import { CustomConnectWalletButton } from "../connect";
 import { stakingType } from "../../constants/constants";
 
-export function NativeStaking() {
+export function NativeStaking({price}: { price: number }) {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [darkMode, setDarkMode] = useState(
     typeof window !== "undefined" &&
@@ -30,7 +30,7 @@ export function NativeStaking() {
   const railBackgroundColor = darkMode ? "#D0F2E01A" : "#0026211A";
   const [coins, setCoins] = useState("0");
   const [isStaking, setIsStaking] = useState(true);
-  const conversionRate = 131.45;
+  const conversionRate = price;
   const usdValue = coins ? Number(coins) * conversionRate : 0;
   const walletBalance = 0.08;
   const rewardPercentage = (Number(coins) / 100) * 5;

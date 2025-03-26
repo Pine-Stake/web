@@ -65,9 +65,7 @@ export function CustomConnectWalletButton({
     >
       <Wallet className="h-4 w-4" />
       {connected
-        ? `Disconnect ${publicKey?.toString().slice(0, 4)}...${publicKey
-            ?.toString()
-            .slice(-4)}`
+        ? isStaking ? 'Stake' : 'Unstake'
         : "Connect Wallet"}
     </button>
   );

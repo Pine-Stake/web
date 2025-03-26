@@ -1,8 +1,11 @@
-"use client";
+// "use client";
 import "rc-slider/assets/index.css";
 import { NativeStaking } from "./NativeStaking";
 import { PastPerformance } from "./PastPerformance";
 import { Informatives } from "../Informatives";
+import { Wrapper } from "./Wrapper";
+import { Suspense } from "react";
+import { Skeleton } from "../ui/skeleton";
 
 export function HeroSection() {
   return (
@@ -26,11 +29,34 @@ export function HeroSection() {
           </div>
 
           <div className="flex xl:flex-row flex-col items-end justify-between xl:gap-24 gap-12 xl:w-1/2 mt-[20px] xl:mt-0">
-            <NativeStaking />
+          <Suspense fallback={<StakingSkeleton />}>
+            <Wrapper />
+          </Suspense>
           </div>
         </div>
       </div>
+      
       <Informatives />
     </div>
   );
 }
+
+function StakingSkeleton() {
+  return (
+    <div className="dark:bg-dark-background-200 font-onest bg-background-200 flex flex-col rounded-3xl w-full md:p-10 px-4 py-8 gap-[1.75rem]">
+      {/* Tab Navigation */}
+      <div className="flex rounded-lg overflow-hidden mb-6">
+        <Skeleton className="h-12 w-1/2 bg-green-500/20 rounded-none" />
+        <Skeleton className="h-12 w-1/2 bg-gray-700/20 rounded-none" />
+      </div>
+      <Skeleton className="h-12 w-full bg-green-500/20 rounded-lg" />
+      <div className="flex gap-2  overflow-hidden mb-6">
+        <Skeleton className="h-28 w-1/2 bg-green-500/20 rounded-none" />
+        <Skeleton className="h-28 w-1/2 bg-gray-700/20 rounded-none" />
+      </div>
+      <Skeleton className="h-12 w-full bg-green-500/20 rounded-lg" />
+      <Skeleton className="h-12 w-full bg-green-500/20 rounded-lg" />
+    </div>
+  )
+}
+
